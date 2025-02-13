@@ -11,154 +11,164 @@
             background: url('https://elektra.data2.media/file/ZWRjdPkTPUauyahOS7lkV') no-repeat center center fixed;
             background-size: cover;
         }
+   .gradient-bg {
+            background: linear-gradient(to bottom, #2E2E2E, #000000);
+        }
   </style>
-  <script>
-   let language = 'ENG';
-
-        function toggleLanguage() {
-            language = language === 'ENG' ? 'PT' : 'ENG';
-            translateText();
-        }
-
-        function translateText() {
-            const translations = {
-                ENG: {
-                    title: 'TACTICOOL',
-                    by: 'by rivøtril',
-                    honor: '[HONOR]',
-                    fileCabinet: 'FILE CABINET',
-                    select: 'Please select what you want',
-                    youNeed: 'YOU NEED',
-                    support: 'Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. Thank you!',
-                },
-                PT: {
-                    title: 'TACTICOOL',
-                    by: 'por rivøtril',
-                    honor: '[HONRA]',
-                    fileCabinet: 'ARQUIVO',
-                    select: 'Por favor, selecione o que você quer',
-                    youNeed: 'VOCÊ PRECISA',
-                    support: 'Ei, se você gosta das ferramentas que eu crio, por favor, considere me apoiar para que eu possa continuar desenvolvendo novos recursos e melhorias. Obrigado!',
-                }
-            };
-
-            document.getElementById('title').innerText = translations[language].title;
-            document.getElementById('by').innerHTML = translations[language].by + ' <span class="text-yellow-500">' + translations[language].honor + '</span>';
-            document.getElementById('fileCabinet').innerText = translations[language].fileCabinet;
-            document.getElementById('select').innerText = translations[language].select;
-            document.getElementById('youNeed').innerText = translations[language].youNeed;
-            document.getElementById('support').innerText = translations[language].support;
-            document.getElementById('language-toggle').innerText = language === 'ENG' ? 'PT/ENG' : 'ENG/PT';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            translateText();
-        });
-  </script>
  </head>
  <body class="flex items-center justify-center min-h-screen">
-</div>
-   <div class="text-right text-xs mb-4">
-    <button class="text-white" id="language-toggle" onclick="toggleLanguage()">
+  <div class="bg-[#4A1A1A] rounded-lg p-6 w-80 sm:w-96 text-white">
+   <div class="flex justify-end mb-2">
+    <button class="text-xs text-gray-400" onclick="toggleLanguage()">
      PT/ENG
     </button>
-  <div class="bg-[#4A1A1A] rounded-lg p-6 w-80 text-center text-white">
-   <div class="mb-4">
-    <h1 class="text-2xl font-bold" id="title">
-     TACTICOOL
-    </h1>
-    <p class="text-sm" id="by">
-     by rivøtril
-     <span class="text-yellow-500">
-      [HONOR]
-     </span>
-    </p>
    </div>
-   <div class="mb-4">
-    <h2 class="text-lg font-semibold" id="fileCabinet">
+   <div class="text-center mb-2">
+    <img alt="Tacticool Logo" class="mx-auto mb-1" height="80" src="https://elektra.data2.media/file/qmnunxRDcwq2jNYTRVIpG" width="240"/>
+    <img alt="by rivotril [Honor]" class="mx-auto" height="20" src="http://elektra.data2.media/file/kwQ0aiPX5LhLbsy1ey_Vh" width="120"/>
+   </div>
+   <div class="text-center mb-4">
+    <h2 class="text-lg font-semibold" id="file-cabinet-title">
      FILE CABINET
     </h2>
-    <p class="text-xs" id="select">
-     Please select what you want
+    <p class="text-xs text-gray-400" id="instruction-text">
+     Enter the number of Intels you need
     </p>
    </div>
-   <div class="flex justify-between items-center mb-4">
-    <img alt="File 1" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
-    <img alt="File 2" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
-    <img alt="File 3" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
-    <img alt="File 4" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
-    <img alt="File 5" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
+   <div class="grid grid-cols-5 gap-2 mb-4">
+    <div class="flex flex-col items-center">
+     <img alt="File 1" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
+     <input class="w-full text-center bg-black text-white rounded" id="file1" oninput="calculate()" type="number" value="0"/>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="File 2" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
+     <input class="w-full text-center bg-black text-white rounded" id="file2" oninput="calculate()" type="number" value="0"/>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="File 3" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
+     <input class="w-full text-center bg-black text-white rounded" id="file3" oninput="calculate()" type="number" value="0"/>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="File 4" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
+     <input class="w-full text-center bg-black text-white rounded" id="file4" oninput="calculate()" type="number" value="0"/>
+    </div>
+    <div class="flex flex-col items-center">
+     <img alt="File 5" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
+     <input class="w-full text-center bg-black text-white rounded" id="file5" oninput="calculate()" type="number" value="0"/>
+    </div>
    </div>
-   <div class="flex justify-between items-center mb-4">
-    <input class="w-11 h-8 text-black text-center" id="white-mods" oninput="calculateNeeds()" type="number" value="0"/>
-    <input class="w-10 h-8 text-black text-center" id="blue-mods" oninput="calculateNeeds()" type="number" value="0"/>
-    <input class="w-10 h-8 text-black text-center" id="purple-mods" oninput="calculateNeeds()" type="number" value="0"/>
-    <input class="w-10 h-8 text-black text-center" id="orange-mods" oninput="calculateNeeds()" type="number" value="0"/>
-    <input class="w-10 h-8 text-black text-center" id="yellow-mods" oninput="calculateNeeds()" type="number" value="0"/>
-   </div>
-   <div class="mb-4">
-    <h2 class="text-lg font-semibold" id="youNeed">
-     YOU NEED
+   <div class="text-center mb-4">
+    <h2 class="text-lg font-semibold" id="you-need-title">
+     YOU WILL NEED
     </h2>
    </div>
-   <div class="flex items-center justify-between mb-2">
-    <img alt="Coin" class="w-9 h-8" height="34" src="https://elektra.data2.media/file/nop6D7N4pp0ZQR51lJxd0" width="31"/>
-    <div class="w-full h-8 bg-gray-600 flex items-center justify-center text-white relative">
-     <span id="silver-needed">
+   <div class="flex items-center mb-2 space-x-2">
+    <img alt="Coin" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/nop6D7N4pp0ZQR51lJxd0" width="40"/>
+    <div class="flex-1 bg-[#A3A3A3] h-8 rounded flex items-center justify-center text-white relative">
+     <span id="silver">
       0
      </span>
-     <input class="absolute right-0 mr-2" id="discount" onclick="calculateNeeds()" type="checkbox"/>
+     <input class="absolute right-2" id="discount" onclick="calculate()" type="checkbox"/>
+     <span class="text-red-500 text-xs absolute right-8">
+      20%
+     </span>
     </div>
    </div>
-   <div class="flex items-center justify-between mb-2">
+   <div class="flex items-center mb-2 space-x-2">
     <img alt="Resource 1" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
-    <div class="w-full h-8 bg-white flex items-center justify-center text-black">
-     <span id="white-needed">
-      0
-     </span>
+    <div class="flex-1 bg-white h-8 rounded flex items-center justify-center text-black" id="white">
+     0
     </div>
    </div>
-   <div class="flex items-center justify-between mb-2">
+   <div class="flex items-center mb-2 space-x-2">
     <img alt="Resource 2" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
-    <div class="w-full h-8 bg-blue-800 flex items-center justify-center text-white">
-     <span id="blue-needed">
-      0
-     </span>
+    <div class="flex-1 bg-[#4B618B] h-8 rounded flex items-center justify-center text-white" id="blue">
+     0
     </div>
    </div>
-   <div class="flex items-center justify-between mb-2">
+   <div class="flex items-center mb-2 space-x-2">
     <img alt="Resource 3" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
-    <div class="w-full h-8 bg-purple-800 flex items-center justify-center text-white">
-     <span id="purple-needed">
-      0
-     </span>
+    <div class="flex-1 bg-[#5A589F] h-8 rounded flex items-center justify-center text-white" id="purple">
+     0
     </div>
    </div>
-   <div class="flex items-center justify-between mb-2">
+   <div class="flex items-center mb-2 space-x-2">
     <img alt="Resource 4" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
-    <div class="w-full h-8 bg-orange-600 flex items-center justify-center text-white">
-     <span id="orange-needed">
-      0
-     </span>
+    <div class="flex-1 bg-[#D79A5A] h-8 rounded flex items-center justify-center text-white" id="orange">
+     0
     </div>
    </div>
-   <div class="flex items-center justify-between mb-4">
+   <div class="flex items-center mb-4 space-x-2">
     <img alt="Resource 5" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
-    <div class="w-full h-8 bg-yellow-500 flex items-center justify-center text-black">
-     <span id="yellow-needed">
-      0
-     </span>
+    <div class="flex-1 bg-[#DDD482] h-8 rounded flex items-center justify-center text-black" id="yellow">
+     0
     </div>
    </div>
-   <div class="bg-black p-4 rounded-lg text-xs">
-    <p id="support">
+   <div class="text-center text-xs gradient-bg p-2 rounded-b-lg w-full">
+    <p id="support-text">
      Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. Thank you!
     </p>
-    <div class="flex justify-center mt-2">
-     <img alt="PayPal" class="w-8 h-8 mx-2" height="40" src="https://storage.googleapis.com/a1aa/image/a8ptfhHs3kJxgg3C0aUMdfMZIW70R5_W789TjRvNiYQ.jpg" width="40"/>
-     <img alt="My.Games" class="w-8 h-8 mx-2" height="40" src="https://storage.googleapis.com/a1aa/image/ltIUS8UV9FOcjiM8-yX09xP9oV_kz8UKLfisAHwGYc8.jpg" width="40"/>
+    <br>
+    <div class="flex justify-center mt-2 space-x-4">
+     <a href="https://www.tiktok.com/@howtotacticool" target="_blank">
+      <img alt="TikTok" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/bPZ0ogoHH3Z82LLfeCA_D" width="40"/>
+     </a>
+     <img alt="Copy URL" class="w-8 h-8 cursor-pointer" height="40" onclick="copyURL()" src="https://elektra.data2.media/file/1aDhz14QcUuVCiOmOS4QN" width="40"/>
     </div>
    </div>
   </div>
+  <script>
+   function calculate() {
+            const file1 = parseInt(document.getElementById('file1').value) || 0;
+            const file2 = parseInt(document.getElementById('file2').value) || 0;
+            const file3 = parseInt(document.getElementById('file3').value) || 0;
+            const file4 = parseInt(document.getElementById('file4').value) || 0;
+            const file5 = parseInt(document.getElementById('file5').value) || 0;
+            const discount = document.getElementById('discount').checked;
+
+            const whiteMods = file1;
+            const blueMods = file2 * 6;
+            const purpleMods = file3 * 5 * 6;
+            const orangeMods = file4 * 4 * 5 * 6;
+            const yellowMods = file5 * 3 * 4 * 5 * 6;
+
+            const totalWhiteMods = whiteMods + blueMods + purpleMods + orangeMods + yellowMods;
+            const silverCostPerMod = discount ? 1600 : 2000;
+            const totalSilver = totalWhiteMods * silverCostPerMod;
+
+            document.getElementById('silver').innerText = totalSilver;
+            document.getElementById('white').innerText = totalWhiteMods;
+            document.getElementById('blue').innerText = file2;
+            document.getElementById('purple').innerText = file3;
+            document.getElementById('orange').innerText = file4;
+            document.getElementById('yellow').innerText = file5;
+        }
+
+        function toggleLanguage() {
+            const instructionText = document.getElementById('instruction-text');
+            const fileCabinetTitle = document.getElementById('file-cabinet-title');
+            const youNeedTitle = document.getElementById('you-need-title');
+            const supportText = document.getElementById('support-text');
+
+            if (instructionText.innerText === 'Enter the number of Intels you need') {
+                instructionText.innerText = 'Digite o número de Intels que você precisa';
+                fileCabinetTitle.innerText = 'ARQUIVO';
+                youNeedTitle.innerText = 'VOCÊ VAI PRECISAR';
+                supportText.innerText = 'Ei, se você gosta das ferramentas que eu crio, por favor, considere me apoiar para que eu possa continuar desenvolvendo novos recursos e melhorias. Obrigado!';
+            } else {
+                instructionText.innerText = 'Enter the number of Intels you need';
+                fileCabinetTitle.innerText = 'FILE CABINET';
+                youNeedTitle.innerText = 'YOU WILL NEED';
+                supportText.innerText = 'Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. Thank you!';
+            }
+        }
+
+        function copyURL() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('URL copied to clipboard!');
+            });
+        }
+  </script>
  </body>
 </html>
