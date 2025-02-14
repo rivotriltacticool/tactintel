@@ -41,13 +41,13 @@
             const youNeedTitle = document.getElementById('you-need-title');
             const supportText = document.getElementById('support-text');
 
-            if (instructionText.innerText === 'Enter the number of Intels you need') {
-                instructionText.innerText = 'Digite o número de Intels que você precisa';
+            if (instructionText.innerText.includes('Enter the number of Intels you need')) {
+                instructionText.innerHTML = 'Digite o número de Intels que você precisa<br>(Use " - " para subtrair os que você já tem)';
                 fileCabinetTitle.innerText = 'ARQUIVO';
                 youNeedTitle.innerText = 'VOCÊ VAI PRECISAR';
                 supportText.innerText = 'Ei, se você gosta das ferramentas que eu crio, por favor, considere me apoiar para que eu possa continuar desenvolvendo novos recursos e melhorias. Meu código de criador é: Rivotril. Obrigado!';
             } else {
-                instructionText.innerText = 'Enter the number of Intels you need';
+                instructionText.innerHTML = 'Enter the number of Intels you need<br>(Use " - " to subtract existing ones)';
                 fileCabinetTitle.innerText = 'FILE CABINET';
                 youNeedTitle.innerText = 'YOU WILL NEED';
                 supportText.innerText = 'Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. My Creator code is: Rivotril. Thank you!';
@@ -73,7 +73,7 @@
     </div>
     <div class="text-center mb-4">
         <h2 class="text-lg font-semibold" id="file-cabinet-title">FILE CABINET</h2>
-        <p class="text-xs text-gray-400" id="instruction-text">Enter the number of Intels you need</p>
+        <p class="text-xs text-gray-400" id="instruction-text">Enter the number of Intels you need<br>(Use " - " to subtract existing ones)</p>
     </div>
     <div class="grid grid-cols-5 gap-2 mb-4">
         <div class="flex flex-col items-center">
@@ -128,7 +128,7 @@
         <img alt="Resource 5" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
         <div class="flex-1 bg-[#DDD482] h-8 rounded flex items-center justify-center text-black" id="yellow">0</div>
     </div>
-    <div class="text-center text-xs p-2 rounded-b-lg w-full">
+    <div class="text-justify text-xs text-gray-400 p-2 rounded-b-lg w-full">
         <p id="support-text">
             Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. My Creator code is: Rivotril. Thank you!
         </p>
