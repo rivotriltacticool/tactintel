@@ -1,130 +1,23 @@
-<html>
- <head>
-  <title>
-   Tacticool
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <style>
-   body {
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Tacticool File Cabinet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
             background: url('https://elektra.data2.media/file/ZWRjdPkTPUauyahOS7lkV') no-repeat center center fixed;
             background-size: cover;
         }
-   .gradient-bg {
-            background: linear-gradient(to bottom, #2E2E2E, #000000);
-        }
-  </style>
- </head>
- <body class="flex items-center justify-center min-h-screen">
-  <div class="bg-[#4A1A1A] rounded-lg p-6 w-80 sm:w-96 text-white">
-   <div class="flex justify-end mb-2">
-    <button class="text-xs text-gray-400" onclick="toggleLanguage()">
-     PT/ENG
-    </button>
-   </div>
-   <div class="text-center mb-1">
-    <img alt="Tacticool Logo" class="mx-auto mb-1" height="80" src="https://elektra.data2.media/file/qmnunxRDcwq2jNYTRVIpG" width="240"/>
-    <img alt="by rivotril [Honor]" class="mx-auto" height="20" src="http://elektra.data2.media/file/kwQ0aiPX5LhLbsy1ey_Vh" width="120"/>
-   </div>
-   <div class="text-center mb-4">
-    <h2 class="text-lg font-semibold" id="file-cabinet-title">
-     FILE CABINET
-    </h2>
-    <p class="text-xs text-gray-400" id="instruction-text">
-     Enter the number of Intels you need
-    </p>
-   </div>
-   <div class="grid grid-cols-5 gap-2 mb-4">
-    <div class="flex flex-col items-center">
-     <img alt="File 1" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
-     <input class="w-full text-center bg-black text-white rounded" id="file1" oninput="calculate()" type="number" value="0"/>
-    </div>
-    <div class="flex flex-col items-center">
-     <img alt="File 2" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
-     <input class="w-full text-center bg-black text-white rounded" id="file2" oninput="calculate()" type="number" value="0"/>
-    </div>
-    <div class="flex flex-col items-center">
-     <img alt="File 3" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
-     <input class="w-full text-center bg-black text-white rounded" id="file3" oninput="calculate()" type="number" value="0"/>
-    </div>
-    <div class="flex flex-col items-center">
-     <img alt="File 4" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
-     <input class="w-full text-center bg-black text-white rounded" id="file4" oninput="calculate()" type="number" value="0"/>
-    </div>
-    <div class="flex flex-col items-center">
-     <img alt="File 5" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
-     <input class="w-full text-center bg-black text-white rounded" id="file5" oninput="calculate()" type="number" value="0"/>
-    </div>
-   </div>
-   <div class="text-center mb-4">
-    <h2 class="text-lg font-semibold" id="you-need-title">
-     YOU WILL NEED
-    </h2>
-   </div>
-   <div class="flex items-center mb-2 space-x-2">
-    <img alt="Coin" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/nop6D7N4pp0ZQR51lJxd0" width="40"/>
-    <div class="flex-1 bg-[#A3A3A3] h-8 rounded flex items-center justify-center text-white relative">
-     <span id="silver">
-      0
-     </span>
-     <input class="absolute right-2" id="discount" onclick="calculate()" type="checkbox"/>
-     <span class="text-red-500 text-xs absolute right-8">
-      20%
-     </span>
-    </div>
-   </div>
-   <div class="flex items-center mb-2 space-x-2">
-    <img alt="Resource 1" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
-    <div class="flex-1 bg-white h-8 rounded flex items-center justify-center text-black" id="white">
-     0
-    </div>
-   </div>
-   <div class="flex items-center mb-2 space-x-2">
-    <img alt="Resource 2" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
-    <div class="flex-1 bg-[#4B618B] h-8 rounded flex items-center justify-center text-white" id="blue">
-     0
-    </div>
-   </div>
-   <div class="flex items-center mb-2 space-x-2">
-    <img alt="Resource 3" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
-    <div class="flex-1 bg-[#5A589F] h-8 rounded flex items-center justify-center text-white" id="purple">
-     0
-    </div>
-   </div>
-   <div class="flex items-center mb-2 space-x-2">
-    <img alt="Resource 4" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
-    <div class="flex-1 bg-[#D79A5A] h-8 rounded flex items-center justify-center text-white" id="orange">
-     0
-    </div>
-   </div>
-   <div class="flex items-center mb-4 space-x-2">
-    <img alt="Resource 5" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
-    <div class="flex-1 bg-[#DDD482] h-8 rounded flex items-center justify-center text-black" id="yellow">
-     0
-    </div>
-   </div>
-   <div class="text-center text-xs gradient-bg p-2 rounded-b-lg w-full">
-    <p id="support-text">
-     Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. My Creator code is: Rivotril. Thank you!
-    </p>
-    <br>
-    <div class="flex justify-center mt-2 space-x-4">
-     <a href="https://www.tiktok.com/@howtotacticool" target="_blank">
-      <img alt="TikTok" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/bPZ0ogoHH3Z82LLfeCA_D" width="40"/>
-     </a>
-     <img alt="Copy URL" class="w-8 h-8 cursor-pointer" height="40" onclick="copyURL()" src="https://elektra.data2.media/file/1aDhz14QcUuVCiOmOS4QN" width="40"/>
-    </div>
-    <br>
-   </div>
-  </div>
-  <script>
-  function calculate() {
-            const whiteMods = parseInt(document.getElementById('white-mods').value) || 0;
-            const blueMods = parseInt(document.getElementById('blue-mods').value) || 0;
-            const purpleMods = parseInt(document.getElementById('purple-mods').value) || 0;
-            const orangeMods = parseInt(document.getElementById('orange-mods').value) || 0;
-            const yellowMods = parseInt(document.getElementById('yellow-mods').value) || 0;
+    </style>
+    <script>
+        function calculate() {
+            const whiteMods = parseInt(document.getElementById('file1').value) || 0;
+            const blueMods = parseInt(document.getElementById('file2').value) || 0;
+            const purpleMods = parseInt(document.getElementById('file3').value) || 0;
+            const orangeMods = parseInt(document.getElementById('file4').value) || 0;
+            const yellowMods = parseInt(document.getElementById('file5').value) || 0;
             const discount = document.getElementById('discount').checked;
 
             const silverPerWhiteMod = discount ? 1600 : 2000;
@@ -135,11 +28,11 @@
             const totalOrangeMods = orangeMods + yellowMods * 3;
 
             document.getElementById('silver').innerText = totalSilver;
-            document.getElementById('white-mods-needed').innerText = totalWhiteMods;
-            document.getElementById('blue-mods-needed').innerText = totalBlueMods;
-            document.getElementById('purple-mods-needed').innerText = totalPurpleMods;
-            document.getElementById('orange-mods-needed').innerText = totalOrangeMods;
-            document.getElementById('yellow-mods-needed').innerText = yellowMods;
+            document.getElementById('white').innerText = totalWhiteMods;
+            document.getElementById('blue').innerText = totalBlueMods;
+            document.getElementById('purple').innerText = totalPurpleMods;
+            document.getElementById('orange').innerText = totalOrangeMods;
+            document.getElementById('yellow').innerText = yellowMods;
         }
 
         function toggleLanguage() {
@@ -152,7 +45,7 @@
                 instructionText.innerText = 'Digite o número de Intels que você precisa';
                 fileCabinetTitle.innerText = 'ARQUIVO';
                 youNeedTitle.innerText = 'VOCÊ VAI PRECISAR';
-                supportText.innerText = 'Ei, se você gosta das ferramentas que eu crio, por favor, considere me apoiar para que eu possa continuar desenvolvendo novos recursos e melhorias. Meu codigo de criador é: Rivotril. Obrigado!';
+                supportText.innerText = 'Ei, se você gosta das ferramentas que eu crio, por favor, considere me apoiar para que eu possa continuar desenvolvendo novos recursos e melhorias. Meu código de criador é: Rivotril. Obrigado!';
             } else {
                 instructionText.innerText = 'Enter the number of Intels you need';
                 fileCabinetTitle.innerText = 'FILE CABINET';
@@ -167,6 +60,87 @@
                 alert('URL copied to clipboard!');
             });
         }
-  </script>
- </body>
+    </script>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+<div class="bg-[#4A1A1A] rounded-lg p-6 w-80 sm:w-96 text-white">
+    <div class="flex justify-end mb-2">
+        <button class="text-xs text-gray-400" onclick="toggleLanguage()">PT/ENG</button>
+    </div>
+    <div class="text-center mb-1">
+        <img alt="Tacticool Logo" class="mx-auto mb-1" height="80" src="https://elektra.data2.media/file/qmnunxRDcwq2jNYTRVIpG" width="240"/>
+        <img alt="by rivotril [Honor]" class="mx-auto" height="20" src="http://elektra.data2.media/file/kwQ0aiPX5LhLbsy1ey_Vh" width="120"/>
+    </div>
+    <div class="text-center mb-4">
+        <h2 class="text-lg font-semibold" id="file-cabinet-title">FILE CABINET</h2>
+        <p class="text-xs text-gray-400" id="instruction-text">Enter the number of Intels you need</p>
+    </div>
+    <div class="grid grid-cols-5 gap-2 mb-4">
+        <div class="flex flex-col items-center">
+            <img alt="File 1" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
+            <input class="w-full text-center bg-black text-white rounded" id="file1" oninput="calculate()" type="number" value="0"/>
+        </div>
+        <div class="flex flex-col items-center">
+            <img alt="File 2" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
+            <input class="w-full text-center bg-black text-white rounded" id="file2" oninput="calculate()" type="number" value="0"/>
+        </div>
+        <div class="flex flex-col items-center">
+            <img alt="File 3" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
+            <input class="w-full text-center bg-black text-white rounded" id="file3" oninput="calculate()" type="number" value="0"/>
+        </div>
+        <div class="flex flex-col items-center">
+            <img alt="File 4" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
+            <input class="w-full text-center bg-black text-white rounded" id="file4" oninput="calculate()" type="number" value="0"/>
+        </div>
+        <div class="flex flex-col items-center">
+            <img alt="File 5" class="w-8 h-8 mb-2" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
+            <input class="w-full text-center bg-black text-white rounded" id="file5" oninput="calculate()" type="number" value="0"/>
+        </div>
+    </div>
+    <div class="text-center mb-4">
+        <h2 class="text-lg font-semibold" id="you-need-title">YOU WILL NEED</h2>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+        <img alt="Coin" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/nop6D7N4pp0ZQR51lJxd0" width="40"/>
+        <div class="flex-1 bg-[#A3A3A3] h-8 rounded flex items-center justify-center text-white relative">
+            <span id="silver">0</span>
+            <input class="absolute right-2" id="discount" onclick="calculate()" type="checkbox"/>
+            <span class="text-red-500 text-xs absolute right-8">20%</span>
+        </div>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+        <img alt="Resource 1" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/f5OE0b_zKIB5qaFzjE0gU" width="40"/>
+        <div class="flex-1 bg-white h-8 rounded flex items-center justify-center text-black" id="white">0</div>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+        <img alt="Resource 2" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/GE4LILNqmJUz7KvT6erLa" width="40"/>
+        <div class="flex-1 bg-[#4B618B] h-8 rounded flex items-center justify-center text-white" id="blue">0</div>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+        <img alt="Resource 3" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/yW7x_yHVEg0h8SOLUTHcv" width="40"/>
+        <div class="flex-1 bg-[#5A589F] h-8 rounded flex items-center justify-center text-white" id="purple">0</div>
+    </div>
+    <div class="flex items-center mb-2 space-x-2">
+        <img alt="Resource 4" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/JAp7UA6pdk5w3lR7YyMKh" width="40"/>
+        <div class="flex-1 bg-[#D79A5A] h-8 rounded flex items-center justify-center text-white" id="orange">0</div>
+    </div>
+    <div class="flex items-center mb-4 space-x-2">
+        <img alt="Resource 5" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/t1bk5e5LxhJ4AQywfIAMU" width="40"/>
+        <div class="flex-1 bg-[#DDD482] h-8 rounded flex items-center justify-center text-black" id="yellow">0</div>
+    </div>
+    <div class="text-center text-xs p-2 rounded-b-lg w-full">
+        <p id="support-text">
+            Hey, if you enjoy the tools I create, please consider supporting me so I can continue developing new features and improvements. My Creator code is: Rivotril. Thank you!
+        </p>
+        <br>
+        <div class="flex justify-center mt-2 space-x-4">
+            <a href="https://www.tiktok.com/@howtotacticool" target="_blank">
+                <img alt="TikTok" class="w-8 h-8" height="40" src="https://elektra.data2.media/file/bPZ0ogoHH3Z82LLfeCA_D" width="40"/>
+            </a>
+            <img alt="Copy URL" class="w-8 h-8 cursor-pointer" height="40" onclick="copyURL()" src="https://elektra.data2.media/file/1aDhz14QcUuVCiOmOS4QN" width="40"/>
+        </div>
+        <br>
+    </div>
+</div>
+</body>
 </html>
