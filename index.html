@@ -120,33 +120,26 @@
   </div>
   <script>
    function calculate() {
-            const file1 = parseInt(document.getElementById('file1').value) || 0;
-            const file2 = parseInt(document.getElementById('file2').value) || 0;
-            const file3 = parseInt(document.getElementById('file3').value) || 0;
-            const file4 = parseInt(document.getElementById('file4').value) || 0;
-            const file5 = parseInt(document.getElementById('file5').value) || 0;
+            const whiteMods = parseInt(document.getElementById('white-mods').value) || 0;
+            const blueMods = parseInt(document.getElementById('blue-mods').value) || 0;
+            const purpleMods = parseInt(document.getElementById('purple-mods').value) || 0;
+            const orangeMods = parseInt(document.getElementById('orange-mods').value) || 0;
+            const yellowMods = parseInt(document.getElementById('yellow-mods').value) || 0;
             const discount = document.getElementById('discount').checked;
-    
-            const whiteMods = file1;
-            const blueMods = file2 * 6;
-            const purpleMods = file3 * 5 * 6;
-            const orangeMods = file4 * 4 * 5 * 6;
-            const yellowMods = file5 * 3 * 4 * 5 * 6;
-    
-            const totalWhiteMods = whiteMods + blueMods + purpleMods + orangeMods + yellowMods;
-            const silverCostPerMod = discount ? 1600 : 2000;
-            const totalSilver = totalWhiteMods * silverCostPerMod;
-            const totalBlueMods = blueMods + purpleMods + orangeMods + yellowMods;
-            const totalPurpleMods = purpleMods + orangeMods + yellowMods; 
-            const totalOrangesMods = orangeMods + yellowMods; 
-    
+
+            const silverPerWhiteMod = discount ? 1600 : 2000;
+            const totalWhiteMods = whiteMods + blueMods * 6 + purpleMods * 6 * 5 + orangeMods * 6 * 5 * 4 + yellowMods * 6 * 5 * 4 * 3;
+            const totalSilver = totalWhiteMods * silverPerWhiteMod;
+            const totalBlueMods = blueMods + purpleMods * 5 + orangeMods * 5 * 4 + yellowMods * 5 * 4 * 3;
+            const totalPurpleMods = purpleMods + orangeMods * 4 + yellowMods * 4 * 3;
+            const totalOrangeMods = orangeMods + yellowMods * 3;
 
             document.getElementById('silver').innerText = totalSilver;
-            document.getElementById('white').innerText = totalWhiteMods;
-            document.getElementById('blue').innerText = file2;
-            document.getElementById('purple').innerText = file3;
-            document.getElementById('orange').innerText = file4;
-            document.getElementById('yellow').innerText = file5;
+            document.getElementById('white-mods-needed').innerText = totalWhiteMods;
+            document.getElementById('blue-mods-needed').innerText = totalBlueMods;
+            document.getElementById('purple-mods-needed').innerText = totalPurpleMods;
+            document.getElementById('orange-mods-needed').innerText = totalOrangeMods;
+            document.getElementById('yellow-mods-needed').innerText = yellowMods;
         }
 
         function toggleLanguage() {
