@@ -133,12 +133,12 @@
             const orangeMods = file4 * 4 * 5 * 6;
             const yellowMods = file5 * 3 * 4 * 5 * 6;
     
-            const totalWhiteMods = whiteMods + blueMods * 6 + purpleMods * 6 * 5 + orangeMods * 6 * 5 * 4 + yellowMods * 6 * 5 * 4 * 3;
+            const totalWhiteMods = whiteMods + blueMods + purpleMods + orangeMods + yellowMods;
             const silverCostPerMod = discount ? 1600 : 2000;
             const totalSilver = totalWhiteMods * silverCostPerMod;
-            const totalBlueMods = blueMods + purpleMods * 5 + orangeMods * 5 * 4 + yellowMods * 5 * 4 *3;
-            const totalPurpleMods = purpleMods + orangeMods * 4 + yellowMods * 4 * 3; 
-            const totalOrangesMods = orangeMods + yellowMods * 3; 
+            const totalBlueMods = blueMods + purpleMods + orangeMods + yellowMods;
+            const totalPurpleMods = purpleMods + orangeMods + yellowMods; 
+            const totalOrangesMods = orangeMods + yellowMods; 
     
 
             document.getElementById('silver').innerText = totalSilver;
